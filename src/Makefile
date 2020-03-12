@@ -1,9 +1,11 @@
 ############################# Makefile ##########################
 all: dki
-dki: server_test.o main.o
-	gcc -o dki server_test.o main.o
-server_test.o: server_test.c server.h
-	gcc -o server_test.o -c server_test.c
+dki: tcp_server.o udp_server.o main.o
+	gcc -o dki tcp_server.o udp_server.o main.o
+tcp_server.o: tcp_server.c server.h
+	gcc -o tcp_server.o -c tcp_server.c
+udp_server.o: udp_server.c server.h
+	gcc -o udp_server.o -c udp_server.c
 main.o: main.c server.h
 	gcc -o main.o -c main.c
 clean:
