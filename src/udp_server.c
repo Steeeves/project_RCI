@@ -6,7 +6,7 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <string.h>
-#include "server_test.h"
+#include "server.h"
 
 struct Server init_udp_sv(char* gate){
 

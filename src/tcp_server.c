@@ -6,8 +6,8 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <string.h>
-#include "server_test.h"
-#include "server_test.h"
+
+#include "server.h"
 
 struct Server init_tcp_sv(char* gate){
 

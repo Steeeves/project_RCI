@@ -11,7 +11,7 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "server_test.h"
+#include "server.h"
 
 int max(int, int);
 
