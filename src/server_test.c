@@ -9,10 +9,7 @@
 
 #include "server_test.h"
 
-
-#define PORT "58001"
-
-struct Server init_tcp_sv(){
+struct Server init_tcp_sv(int ip, int gate){
 
   struct Server server;
 
@@ -24,7 +21,7 @@ struct Server init_tcp_sv(){
   server.hints.ai_socktype = SOCK_STREAM;
   server.hints.ai_flags = AI_PASSIVE;
 
-  server.errcode = getaddrinfo(NULL, PORT, &server.hints, &server.res);
+  server.errcode = getaddrinfo(NULL, gate, &server.hints, &server.res);
   if (server.errcode != 0) /*error*/  exit(1);
 
   server.n = bind(server.fd, server.res->ai_addr, server.res->ai_addrlen);
@@ -59,7 +56,7 @@ void close_tcp_sv(struct Server server){
   close(server.fd);
 }
 
-struct Server init_udp_sv(){
+struct Server init_udp_sv(int ip, int gate){
 
   struct Server server;
 
@@ -71,7 +68,7 @@ struct Server init_udp_sv(){
   server.hints.ai_socktype = SOCK_DGRAM;
   server.hints.ai_flags = AI_PASSIVE;
 
-  server.errcode = getaddrinfo(NULL, PORT, &server.hints, &server.res);
+  server.errcode = getaddrinfo(NULL, gate, &server.hints, &server.res);
   if (server.errcode != 0) /*error*/  exit(1);
 
   server.n = bind(server.fd, server.res->ai_addr, server.res->ai_addrlen);
