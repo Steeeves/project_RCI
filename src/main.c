@@ -25,8 +25,8 @@ int main(int argc, char *argv[]){
   }
   /*printf("ip: %d\n", ip);
   printf("gate: %d\n", gate);*/
-  struct Server udp_server = init_udp_sv(ip, gate);
-  struct Server tcp_server = init_tcp_sv(ip, gate);
+  struct Server udp_server = init_udp_sv(argv[2]);
+  struct Server tcp_server = init_tcp_sv(argv[2]);
   fd_set rfds;
   enum {idle, busy} state;
   int maxfd, counter, afd = 5;

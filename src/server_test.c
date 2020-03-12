@@ -9,7 +9,7 @@
 
 #include "server_test.h"
 
-struct Server init_tcp_sv(int ip, int gate){
+struct Server init_tcp_sv(char* gate){
 
   struct Server server;
 
@@ -56,7 +56,7 @@ void close_tcp_sv(struct Server server){
   close(server.fd);
 }
 
-struct Server init_udp_sv(int ip, int gate){
+struct Server init_udp_sv(char* gate){
 
   struct Server server;
 
